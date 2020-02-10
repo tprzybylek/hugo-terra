@@ -1,0 +1,19 @@
+
+<section class="col-2">
+    <h2>Send me a message:</h2>
+    <form action="{{ .Site.Params.form.briskform }}" method="post">
+        <div class="col-2 left">
+            <label for="form_name">Name:</label>
+            <input class="form-input" type="text" name="name" maxlength="255" required id="form_name">
+        </div>
+        <div class="col-2 right">
+            <label for="form_email">E-Mail:</label>
+            <input class="form-input" type="email" name="email" maxlength="255" required id="form_email">
+        </div>
+        <div>
+            <label for="form_message">Message:</label>
+            <textarea class="form-input" name="message" cols="40" rows="10" required id="form_message"></textarea>
+        </div>
+        <button class="form-input" type="submit" >Send</button>
+    </form>
+</section>

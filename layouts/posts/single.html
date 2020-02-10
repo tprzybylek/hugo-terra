@@ -1,0 +1,38 @@
+{{ define "main" }}
+	<main class="page">
+		<article class="post">
+			<div class="post-meta">
+				<div class="post-date">
+					<time>{{ .Date.Format "2006-01-02" }}</time>
+				</div>
+				<div class="post-author">
+					{{ .Params.author }}
+				</div>
+			</div>
+			<div class="post-title">
+				<h1>{{ .Title }}</h1>
+			</div>
+
+			{{ with .Params.tags }}
+			<div class="post-tags">
+
+					Tags:
+					{{ range $i, $e := . }}
+						{{if $i}},&nbsp;{{end}}
+						<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+					{{ end }}
+
+			</div>
+			{{ end }}
+
+			<div class="post-article">
+				{{ .Content }}
+			</div>
+			
+			<div>
+				{{ template "_internal/disqus.html" . }}
+			</div>
+		</article>
+	</main>
+{{ partial "last_posts.html" . }}
+{{ end }}

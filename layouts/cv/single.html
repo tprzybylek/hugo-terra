@@ -1,0 +1,176 @@
+{{ define "main" }}
+<main class="page">
+    <h1>{{ .Title }}</h1>
+    <section id="cv">
+        <header>
+            <h1>{{ .Params.basics.name }}</h1>
+            <h2>{{ .Params.basics.label }}</h2>
+        </header>
+
+        <section class="section">
+            <h3 class="section-title">Profile</h3>
+            <section class="profile">
+                <p>
+                    {{ .Params.basics.summary }}
+                </p>
+            </section>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">Work Experience</h3>
+            {{ range .Params.work }}
+                <section class="item">
+                    <header>
+                        <h3 class="item-name">{{ .name }}</h3>
+                        <div class="item-date">
+                            <span>
+                                {{ .startDate }}
+                            </span>
+                            -
+                            <span>
+                                {{ if .endDate }}
+                                    {{ .endDate }}
+                                {{ else }}
+                                    present
+                                {{ end }}
+                            </span>
+                        </div>
+                    </header>
+                    <div class="item-details">
+                        <span class="position">
+                            {{ .position }}
+                        </span>
+                        <span class="location">
+                            - {{ .location }}
+                        </span>
+                        <div class="summary">
+                            {{ .summary }}
+                        </div>
+                        <ul class="highlights">
+                        {{ range .highlights }}
+                            <li> {{ . }}</li>
+                        {{ end }}
+                        </ul>
+                    </div>
+                </section>
+            {{ end }}
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">Education</h3>
+            {{ range .Params.education }}
+                <section class="item">
+                    <header>
+                        <h3 class="item-name">{{ .institution }}</h3>
+                        <div class="item-date">
+                            <span>
+                                {{ .startDate }}
+                            </span>
+                            -
+                            <span>
+                                {{ if .endDate }}
+                                    {{ .endDate }}
+                                {{ else }}
+                                    present
+                                {{ end }}
+                            </span>
+                        </div>
+                    </header>
+                    <div class="item-details">
+                        <div class="studyType">
+                            {{ .studyType }}
+                        </div>
+                        <div class="area">
+                            Field of study: {{ .area }}{{ if .specialisation }}, Specialisation: {{ .specialisation }}{{ end }}
+                        </div>
+                        <div class="summary">
+                            {{ .summary }}
+                        </div>
+                    </div>
+                </section>
+            {{ end }}
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">Volunteering</h3>
+            
+            {{ range .Params.volunteer }}
+                <section class="item">
+                    <header>
+                        <h3 class="item-name">{{ .organization }}</h3>
+                        <div class="item-date">
+                            <span>
+                                {{ .startDate }}
+                            </span>
+                            -
+                            <span>
+                                {{ if .endDate }}
+                                    {{ .endDate }}
+                                {{ else }}
+                                    present
+                                {{ end }}
+                            </span>
+                        </div>
+                    </header>
+                    <div class="item-details">
+                        <div class="position">
+                            {{ .position }}
+                        </div>
+                        <div class="summary">
+                            {{ .summary }}
+                        </div>
+                        <ul class="highlights">
+                        {{ range .highlights }}
+                            <li> {{ . }}</li>
+                        {{ end }}
+                        </ul>
+                    </div>
+                </section>
+            {{ end }}
+        </section>
+
+
+        {{/*  <section>
+            <h2>Awards</h2>
+            <section>
+               
+            </section>
+        </section>  */}}
+
+        <section class="section">
+            <h3 class="section-title">Skills</h3>
+            {{ range .Params.skills }}
+                <div class="inline-item">
+                    <div class="name">
+                        {{ .name }}
+                    </div>
+                    <ul class="keywords">
+                        {{ range .keywords }}
+                            <li>{{ . }}</li>
+                        {{ end }}
+                    </ul>
+                </div>
+            {{ end }}
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">Languages</h3>
+            {{ range .Params.languages }}
+                <div class="inline-item">
+                    <div class="language">{{ .language }}</div>
+                    <div class="fluency">{{ .fluency }}</div>
+                </div>
+            {{ end }}
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">Interests</h3>
+                {{ range .Params.interests }}
+                    <div class="inline-item">
+                        <div class="name">{{ . }}</div>
+                    </div>
+                {{ end }}
+        </section>
+    </section>
+</main>
+{{ end }}

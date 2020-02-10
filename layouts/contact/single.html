@@ -1,0 +1,18 @@
+{{ define "main" }}
+<main class="page">
+    <h1>{{ .Title }}</h1>
+    <section class="social-profiles">
+        <h2>Profiles:</h2>
+        <ul>
+            {{ if .Site.Params.social.github }} <li><i class="fa fa-github"></i><a href="{{ .Site.Params.social.github }}">GitHub</a></li> {{ end }}
+            {{ if .Site.Params.social.stackoverflow }} <li><i class="fa fa-stack-overflow"></i><a href="{{ .Site.Params.social.stackoverflow }}" rel="me">Stack Overflow</a></li> {{ end }}
+            {{ if .Site.Params.social.telegram }} <li><i class="fa fa-telegram"></i><a href="{{ .Site.Params.social.telegram }}" rel="me">Telegram</a></li> {{ end }}
+            {{ if .Site.Params.social.linkedin }} <li><i class="fa fa-linkedin"></i><a href="{{ .Site.Params.social.linkedin }}" rel="me">LinkedIn</a></li> {{ end }}
+            {{ if .Site.Params.social.mastodon }} <li><i class="fa fa-mastodon"></i><a href="{{ .Site.Params.social.mastodon }}" rel="me">Mastodon</a></li> {{ end }}
+        </ul>
+    </section>
+    <section class="section quarter">
+        {{ partial "contact.html" . }}
+    </section>
+</main>
+{{ end }}

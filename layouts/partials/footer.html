@@ -1,0 +1,8 @@
+<footer>
+	<ul>
+		{{ if .Site.Params.social.github }} <li><a href="{{ .Site.Params.social.github }}"><i class="fa fa-github"></i></a></li> {{ end }}
+		{{ if .Site.Params.social.telegram }} <li><a href="{{ .Site.Params.social.telegram }}"><i class="fa fa-telegram"></i></a></li> {{ end }}
+		{{ if .Site.Params.social.mastodon }} <li><a href="{{ .Site.Params.social.mastodon }}" rel="me"><i class="fa fa-mastodon"></i></a></li> {{ end }}
+	</ul>
+	<p>&copy; {{ now.Year }} | <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> | <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
+</footer>

@@ -1,0 +1,36 @@
+<article class="post">
+	<div class="post-meta">
+		<div class="post-date">
+			<time>
+				{{ .Date.Format "2006-01-02" }}
+			</time>
+		</div>
+		<div class="post-author">{{ .Params.author }}</div>
+	</div>
+	<div class="post-title">
+		<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+	</div>
+	<div class="post-tags">
+
+			Tags:
+			{{ range $i, $e := .Params.tags }}
+				{{if $i}},&nbsp;{{end}}
+				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+			{{ end }}
+
+	</div>
+
+	{{ with .Resources.GetMatch "images/1.jpg" }}
+		{{ $image := .Fill "900x300 Center" }} 
+		<img src="{{ $image.Permalink }}"></img>
+	{{ end }}
+	
+	<div class="post-article">
+		<p>
+			{{ .Summary }}
+			{{ if .Truncated }}
+				<a href="{{ .Permalink }}">Read more...</a>
+			{{ end }}
+		</p>
+	</div>
+</article>

@@ -1,0 +1,14 @@
+{{ with .Site.GetPage "/posts" }}
+<div>
+	<div>
+		<h2>Recent Posts</h2>
+	</div>
+	<div>
+		<ul>
+			{{ range first 5 .Pages }}
+			<li>{{ .Date.Format "2006-01-02" }} - <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+			{{ end }}
+		</ul>
+	</div>
+</div>
+{{ end}}

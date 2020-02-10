@@ -1,0 +1,76 @@
+@import "./scss/fontawesome.scss";
+@import "./scss/brands.scss";
+
+.fa {
+    margin-right: 0.5em;
+}
+
+
+
+.social-profiles {
+    ul {
+        list-style-type: none;
+        margin-left: 1em;
+    }
+
+    a {
+        background: linear-gradient(
+            to bottom, $secondary-color 0%,
+            $secondary-color 100%
+        );
+        background-position: 0 100%;
+        background-repeat: repeat-x;
+        background-size: 1px 1px;
+        transition: background-size .2s;
+    }
+      
+    a:hover {
+        background-size: 1px 1.5em;
+    }
+}
+
+.fa-github {
+    @extend %fa-icon;
+    @extend .fab;
+
+    &:before {
+        content: fa-content($fa-var-github);
+    }
+}
+
+.fa-mastodon {
+    @extend %fa-icon;
+    @extend .fab;
+
+    &:before {
+        content: fa-content($fa-var-mastodon);
+    }
+}
+
+.fa-stack-overflow {
+    @extend %fa-icon;
+    @extend .fab;
+
+    &:before {
+        content: fa-content($fa-var-stack-overflow);
+    }
+}
+
+.fa-telegram {
+    @extend %fa-icon;
+    @extend .fab;
+
+    &:before {
+        content: fa-content($fa-var-telegram);
+    }
+}
+
+.fa-linkedin {
+    @extend %fa-icon;
+    @extend .fab;
+
+    &:before {
+        content: fa-content($fa-var-linkedin);
+    }
+}
+
