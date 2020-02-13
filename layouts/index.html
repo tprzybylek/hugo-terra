@@ -1,17 +1,23 @@
 {{ define "main" }}
 	<main>
 		<section class="section half" id="splash">
-			<h1 class="splash-title">{{ .Site.Params.splash.title }}</h1>
-			<h2 class="splash-subtitle">{{ .Site.Params.splash.subtitle }}</h2>
+			<h1 class="splash-title">{{ .Site.Params.main.splash.title }}</h1>
+			<h2 class="splash-subtitle">{{ .Site.Params.main.splash.subtitle }}</h2>
 		</section>
-		<section class="section quarter blog" id="blog">
-			{{ partial "last_posts.html" . }}
-		</section>
-		<section class="section quarter projects" id="projects">
-			{{ partial "last_projects.html" . }}
-		</section>
-		<section class="section quarter" id="contact">
-			{{ partial "contact.html" . }}
-		</section>
+		{{ if .Site.Params.main.sections.posts }}
+			<section class="section quarter blog" id="blog">
+				{{ partial "last_posts.html" . }}
+			</section>
+		{{ end }}
+		{{ if .Site.Params.main.sections.projects }}
+			<section class="section quarter projects" id="projects">
+				{{ partial "last_projects.html" . }}
+			</section>
+		{{ end }}
+		{{ if .Site.Params.main.sections.contact }}
+			<section class="section quarter" id="contact">
+				{{ partial "contact.html" . }}
+			</section>
+		{{ end }}
 	</main>
 {{ end }}

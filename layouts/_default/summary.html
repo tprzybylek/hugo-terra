@@ -21,7 +21,7 @@
 	</div>
 
 	{{ with .Resources.GetMatch "images/1.jpg" }}
-		{{ $image := .Fill "900x300 Center" }} 
+		{{ $image := .Fill "900x600 Center" }} 
 		<img src="{{ $image.Permalink }}"></img>
 	{{ end }}
 	

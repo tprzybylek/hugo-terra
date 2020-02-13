@@ -11,6 +11,10 @@
 			<article>
 				<h2>{{ .Title }}</h2>
 				<div>
+					{{ with .Params.image }}
+						<img src="{{ . }}"/>
+					{{ end }}
+					
 					<p>
 						{{ with .Params.repourl }}<i class="fa fa-github"></i><a href="{{ . }}">GitHub</a>{{ end }}
 					</p>
