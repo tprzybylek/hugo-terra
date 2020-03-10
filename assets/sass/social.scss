@@ -1,11 +1,6 @@
-@import "./scss/fontawesome.scss";
-@import "./scss/brands.scss";
-
 .fa {
     margin-right: 0.5em;
 }
-
-
 
 .social-profiles {
     ul {
@@ -30,47 +25,52 @@
 }
 
 .fa-github {
-    @extend %fa-icon;
-    @extend .fab;
-
     &:before {
-        content: fa-content($fa-var-github);
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        content: url('../icons/github.min.svg') 
     }
 }
 
 .fa-mastodon {
-    @extend %fa-icon;
-    @extend .fab;
-
     &:before {
-        content: fa-content($fa-var-mastodon);
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        content: url('../icons/mastodon.min.svg') 
     }
 }
 
 .fa-stack-overflow {
-    @extend %fa-icon;
-    @extend .fab;
-
     &:before {
-        content: fa-content($fa-var-stack-overflow);
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        content: url('../icons/stack-overflow.min.svg') 
     }
 }
 
 .fa-telegram {
-    @extend %fa-icon;
-    @extend .fab;
-
     &:before {
-        content: fa-content($fa-var-telegram);
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        content: url('../icons/telegram.min.svg') 
     }
 }
 
 .fa-linkedin {
-    @extend %fa-icon;
-    @extend .fab;
-
     &:before {
-        content: fa-content($fa-var-linkedin);
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        content: url('../icons/linkedin.min.svg') 
     }
 }
 

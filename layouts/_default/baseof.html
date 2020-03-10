@@ -7,9 +7,23 @@
 	<title>{{ .Site.Title }} - {{ .Title }}</title>
 	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-
+	
 	{{ $sass := resources.Get "sass/main.scss" }}
 	{{ $style := $sass | resources.ToCSS }}
+	
+	<!--
+	{{ $icon_calendar := resources.Get "icons/calendar.svg" | minify }} {{ $icon_calendar.Permalink }}
+	{{ $icon_git_commit := resources.Get "icons/git-commit.svg" | minify }} {{ $icon_git_commit.Permalink }}
+	{{ $icon_tag := resources.Get "icons/tag.svg" | minify }} {{ $icon_tag.Permalink }}
+	{{ $icon_user := resources.Get "icons/user.svg" | minify }} {{ $icon_user.Permalink }}
+
+	{{ $icon_github := resources.Get "icons/github.svg" | minify }} {{ $icon_github.Permalink }}
+	{{ $icon_linkedin := resources.Get "icons/linkedin.svg" | minify }} {{ $icon_linkedin.Permalink }}
+	{{ $icon_mastodon := resources.Get "icons/mastodon.svg" | minify }} {{ $icon_mastodon.Permalink }}
+	{{ $icon_stack_overflow := resources.Get "icons/stack-overflow.svg" | minify }} {{ $icon_stack_overflow.Permalink }}
+	{{ $icon_telegram := resources.Get "icons/telegram.svg" | minify }} {{ $icon_telegram.Permalink }}
+	-->
+
 	<link rel="stylesheet" href="{{ $style.Permalink }}">
 	{{ with .OutputFormats.Get "RSS" -}}
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
