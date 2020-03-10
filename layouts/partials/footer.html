@@ -1,8 +1,24 @@
 <footer>
 	<ul>
-		{{ if .Site.Params.social.github }} <li><a href="{{ .Site.Params.social.github }}"><i class="fa fa-github"></i></a></li> {{ end }}
-		{{ if .Site.Params.social.telegram }} <li><a href="{{ .Site.Params.social.telegram }}"><i class="fa fa-telegram"></i></a></li> {{ end }}
-		{{ if .Site.Params.social.mastodon }} <li><a href="{{ .Site.Params.social.mastodon }}" rel="me"><i class="fa fa-mastodon"></i></a></li> {{ end }}
+		{{ range .Site.Params.Social }}
+			{{ if .visibleInFooter }}
+				<li>
+					<a href="{{ .url }}">
+						{{ if eq .type "github" }}
+						<i class="fa fa-github"></i>
+						{{ else if eq .type  "stackoverflow" }}
+						<i class="fa fa-stack-overflow"></i>
+						{{ else if eq .type "telegram" }}
+						<i class="fa fa-telegram"></i>
+						{{ else if eq .type "linkedin" }}
+						<i class="fa fa-linkedin"></i>
+						{{ else if eq .type "mastodon" }}
+						<i class="fa fa-mastodon"></i>
+						{{ end }}
+					</a>
+				</li>
+			{{ end }}
+		{{ end }}
 	</ul>
 	<p>&copy; {{ now.Year }} | <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> | <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
 </footer>

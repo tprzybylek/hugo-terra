@@ -4,11 +4,25 @@
     <section class="social-profiles">
         <h2>Profiles:</h2>
         <ul>
-            {{ if .Site.Params.social.github }} <li><i class="fa fa-github"></i><a href="{{ .Site.Params.social.github }}">GitHub</a></li> {{ end }}
-            {{ if .Site.Params.social.stackoverflow }} <li><i class="fa fa-stack-overflow"></i><a href="{{ .Site.Params.social.stackoverflow }}" rel="me">Stack Overflow</a></li> {{ end }}
-            {{ if .Site.Params.social.telegram }} <li><i class="fa fa-telegram"></i><a href="{{ .Site.Params.social.telegram }}" rel="me">Telegram</a></li> {{ end }}
-            {{ if .Site.Params.social.linkedin }} <li><i class="fa fa-linkedin"></i><a href="{{ .Site.Params.social.linkedin }}" rel="me">LinkedIn</a></li> {{ end }}
-            {{ if .Site.Params.social.mastodon }} <li><i class="fa fa-mastodon"></i><a href="{{ .Site.Params.social.mastodon }}" rel="me">Mastodon</a></li> {{ end }}
+            {{ range .Site.Params.Social }}
+                {{ if .visibleInProfiles }}
+                    <li>
+                        
+                            {{ if eq .type "github" }}
+                            <i class="fa fa-github"></i><a href="{{ .url }}" rel="me">GitHub</a>
+                            {{ else if eq .type  "stackoverflow" }}
+                            <i class="fa fa-stack-overflow"></i><a href="{{ .url }}" rel="me">Stack Overflow</a>
+                            {{ else if eq .type "telegram" }}
+                            <i class="fa fa-telegram"></i><a href="{{ .url }}" rel="me">Telegram</a>
+                            {{ else if eq .type "linkedin" }}
+                            <i class="fa fa-linkedin"></i><a href="{{ .url }}" rel="me">LinkedIn</a>
+                            {{ else if eq .type "mastodon" }}
+                            <i class="fa fa-mastodon"></i><a href="{{ .url }}" rel="me">Mastodon</a>
+                            {{ end }}
+                        </a>
+                    </li>
+                {{ end }}
+            {{ end }}
         </ul>
     </section>
     <section class="section quarter">
