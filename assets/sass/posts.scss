@@ -1,0 +1,96 @@
+.meta-date {
+    &:before {
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        content: url('../icons/calendar.min.svg')
+    }
+}
+
+.meta-tags {
+    &:before {
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        content: url('../icons/tag.min.svg') 
+    }
+}
+
+.meta-gitinfo {
+    &:before {
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        content: url('../icons/git-commit.min.svg')
+    }
+}
+
+.meta-author {
+    &:before {
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        content: url('../icons/user.min.svg')
+    }
+}
+
+.meta {
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.2;
+    font-size: 0.8em;
+}
+
+.new-post {
+    display: flex;
+    flex-direction: column-reverse;
+
+    & > .new-post-item {
+        flex-basis: 25%;
+
+        &.meta {
+            margin-top: 0.5em;
+        }
+
+        &.summary {
+            text-align: justify;
+            flex-grow: 2;
+        }
+
+        // &.image {
+        //     margin-left: 0.5em;
+        // }
+    }
+
+    & > .post-image {
+        
+    }
+
+    & > .post-article {
+        
+    }
+}
+
+@media screen and (min-width: 900px) { 
+    .new-post {
+        display: flex;
+        flex-direction: row;
+
+        & > .new-post-item {
+            flex-basis: 25%;
+    
+            &.summary {
+                text-align: justify;
+                flex-grow: 2;
+            }
+    
+            &.image {
+                margin-left: 0.5em;
+            }
+        }
+
+    }
+}

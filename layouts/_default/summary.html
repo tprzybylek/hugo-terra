@@ -1,36 +1,39 @@
-<article class="post">
-	<div class="post-meta">
-		<div class="post-date">
-			<time>
-				{{ .Date.Format "2006-01-02" }}
-			</time>
-		</div>
-		<div class="post-author">{{ .Params.author }}</div>
-	</div>
-	<div class="post-title">
-		<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-	</div>
-	<div class="post-tags">
-
-			Tags:
+<article class="new-post">
+	<div class="new-post-item meta">
+		<p class="meta-date">
+			<time>{{ .Date.Format "2006-01-02" }}</time>
+		</p>
+		<p class="meta-tags">
 			{{ range $i, $e := .Params.tags }}
-				{{if $i}},&nbsp;{{end}}
+			{{if $i}},&nbsp;{{end}}
 				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
 			{{ end }}
+		</p>
 
+		{{ with .GitInfo }}
+		<p class="meta-gitinfo">
+			{{ .AbbreviatedHash }}
+			{{/*  @ {{ dateFormat "2006-01-02" .AuthorDate }}  */}}
+		</p>
+		{{ end }}
+		
+		<p class="meta-author">
+			{{ .Params.author }}
+		</p>
+	</div>
+	
+	<div class="new-post-item summary">
+		<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+		{{ .Summary }}
+		{{ if .Truncated }}
+			<a href="{{ .Permalink }}">Read more...</a>
+		{{ end }}
 	</div>
 
 	{{ with .Resources.GetMatch "images/1.jpg" }}
-		{{ $image := .Fill "900x600 Center" }} 
+	<div class="new-post-item image">
+		{{ $image := .Fill "300x200 Center" }} 
 		<img src="{{ $image.Permalink }}"></img>
-	{{ end }}
-	
-	<div class="post-article">
-		<p>
-			{{ .Summary }}
-			{{ if .Truncated }}
-				<a href="{{ .Permalink }}">Read more...</a>
-			{{ end }}
-		</p>
 	</div>
+	{{ end }}
 </article>
