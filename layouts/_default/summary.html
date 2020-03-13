@@ -4,10 +4,10 @@
 			<time>{{ .Date.Format "2006-01-02" }}</time>
 		</p>
 		<p class="meta-tags">
-			{{ range $i, $e := .Params.tags }}
-			{{if $i}},&nbsp;{{end}}
-				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-			{{ end }}
+			{{- range $i, $e := .Params.tags -}}
+			{{ if $i }},{{ end }}
+			<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+			{{- end -}}
 		</p>
 
 		{{ with .GitInfo }}
@@ -17,9 +17,11 @@
 		</p>
 		{{ end }}
 		
+		{{ with .Params.author }}
 		<p class="meta-author">
-			{{ .Params.author }}
+			{{ . }}
 		</p>
+		{{ end }}
 	</div>
 	
 	<div class="new-post-item summary">
