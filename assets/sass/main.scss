@@ -20,22 +20,36 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5em;
 }
 
-p, dl, ol, ul, code, blockquote {
+p, dl, ol, ul {
     line-height: 1.5;
-    margin-top: 0;
-    // margin-bottom: 1em;
+    // margin-top: 0;
 }
 
 a {
     color: $primary-color;
     text-decoration: none;
+    background: linear-gradient(
+        to bottom, $secondary-color 0%,
+        $secondary-color 100%
+    );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 1px 1px;
+    transition: background-size .2s;
+}
+    
+a:hover {
+    background-size: 1px 1.5em;
 }
 
-li { 
-    list-style-position: inside;
+ol, ul {
+    padding: 0;
+    margin-left: 1.8em;
 }
-///
 
+// li { 
+//     list-style-position: inside;
+// }
 
 .header-link {
     background: linear-gradient(
@@ -52,55 +66,49 @@ li {
     background-size: 1px 1.5em;
 }
 
-  ///
-
 img {
     display: block;
-    margin: 0.5em auto;
-    width: auto;
-    max-width: 900px;
-
-  }
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
 
 header {
     &.main-header {
-    position: fixed;
-    top: 0px;
-    z-index: 2;
-    width: 100%;
-    padding: 1rem 0;
+        position: fixed;
+        top: 0px;
+        z-index: 2;
+        width: 100%;
+        padding: 1rem 0;
 
-    max-width: inherit;
-    background: $primary-background-color;
-    
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    li {
-        display: inline;
-        margin-right: 1em;
+        max-width: inherit;
+        background: $primary-background-color;
         
-    }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
 
-    a {
-        font-weight: 600;
-        // text-decoration: underline;
-        // text-decoration-color: $secondary-color;
-    }
-    }
-}
+        li {
+            display: inline;
+            margin-right: 1em;
+            
+        }
 
-blockquote {
-    padding: 1.5em;
-    font-style: italic;
-    border-left: 5px solid $primary-color;
+        a {
+            font-weight: 600;
+        }
+    }
 }
 
 main {
     min-height: 100vh;
+}
+
+section {
+    margin-bottom: 2em;
 }
 
 footer {
@@ -113,14 +121,18 @@ footer {
         margin-bottom: 0.5em;
     }
 
+    ul {
+        margin-left: 0;
+    }
+
     ul li {
         display: inline;
     }
 
     .fa {
         margin-right: 0;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
+        padding-left: 0.25em;
+        padding-right: 0.25em;
     }
 }
 
@@ -134,7 +146,6 @@ footer {
 }
 
 .section {
-    // margin: 1rem 0;
     overflow-y: auto;
 
     &.full {
@@ -143,24 +154,10 @@ footer {
     
     &.half {
         min-height: 50vh;
-        // background-color: blueviolet;
     }
 
     &.quarter {
         min-height: 25vh;
-        // background-color: skyblue;
-    }
-
-    &.blog {
-        li {
-            list-style-position: inside;
-        }
-    }
-
-    &.projects {
-        li {
-            list-style-position: inside;
-        }
     }
 }
 
@@ -219,77 +216,6 @@ textarea {
 }
 
 
-
-article {
-    list-style-position: inside;
-    margin-bottom: 2em;
-
-    p {
-        text-align: justify;
-    }
-}
-
-.post {
-    // img {
-    //     display: block;
-    //     margin: 0.5em auto;
-    // }
-
-    pre {
-        padding: 1em;
-        overflow-y: scroll;
-    }
-
-    .highlight{
-        margin-bottom: 1em;
-    }
-
-}
-
-.post-meta {
-    overflow: auto;
-    margin-bottom: 0.5em;
-}
-
-.post-date {
-    width: 50%;
-    float: left;
-    font-style: italic;
-}
-
-.post-author {
-    width: 50%;
-    float: left;
-    text-align: right;
-    font-style: italic;
-}
-
-// .post-title {
-
-// }
-
-.post-tags {
-    font-style: italic;
-}
-
-// .post-article {
-    a {
-        background: linear-gradient(
-            to bottom, $secondary-color 0%,
-            $secondary-color 100%
-        );
-        background-position: 0 100%;
-        background-repeat: repeat-x;
-        background-size: 1px 1px;
-        transition: background-size .2s;
-    }
-      
-    a:hover {
-        background-size: 1px 1.5em;
-    }
-// }
-
-
 @media screen and (min-width: 600px) { 
     
 
@@ -307,8 +233,10 @@ article {
     }
 }
 
+
 @media screen and (min-width: 900px) {
     body {
-        padding: 0;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 }

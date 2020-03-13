@@ -1,3 +1,4 @@
+// Post summary
 .meta-date {
     &:before {
         display: inline-flex;
@@ -42,6 +43,10 @@
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.2;
     font-size: 0.8em;
+
+    & > p {
+        text-align: left;
+    }
 }
 
 .new-post {
@@ -51,26 +56,10 @@
     & > .new-post-item {
         flex-basis: 25%;
 
-        &.meta {
-            margin-top: 0.5em;
-        }
-
         &.summary {
             text-align: justify;
             flex-grow: 2;
         }
-
-        // &.image {
-        //     margin-left: 0.5em;
-        // }
-    }
-
-    & > .post-image {
-        
-    }
-
-    & > .post-article {
-        
     }
 }
 
@@ -93,4 +82,66 @@
         }
 
     }
+}
+
+// Single post
+.post {
+    & > .meta {
+        margin-top: 2em;
+    }
+}
+article {
+    margin-bottom: 2em;
+}
+
+.content {
+    img {
+        max-height: 600px;
+        margin-bottom: 0.5em;
+    }
+
+    hr {
+        margin-top: 0.25em;
+        margin-bottom: 0.25em;
+    }
+
+    blockquote {
+        padding: .5em;
+        font-style: italic;
+        border-left: 5px solid $primary-color;
+    }
+
+    p {
+        text-align: justify;
+        margin-bottom: 0.5em;
+    }
+
+    ul, ol, table {
+        margin-bottom: 0.5em;
+    }
+
+    code {
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    pre {
+        padding: 1em;
+        line-height: 1.2;
+        font-size: 0.8em;
+        
+        overflow-y: scroll;
+    }
+
+    .highlight{
+        margin-bottom: 1em;
+    }
+
+    .footnotes {
+        line-height: 1.2;
+        font-size: 0.8em;
+    }
+}
+
+.pagination {
+    text-align: center;
 }
